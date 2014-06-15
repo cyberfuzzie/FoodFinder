@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:weightSum="1" tools:context=".RestaurantActivity">
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="500dp"
+            android:text="Beschreibung des Restaurants"
+            android:id="@+id/restaurant_description" android:layout_weight="0.58"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:gravity="right">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Neue Bewertung"
+                android:id="@+id/restaurant_new_rating_button"
+                android:onClick="createNewRating"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Navigation"
+                android:id="@+id/restaurant_navigation_button"/>
+    </LinearLayout>
+    <ListView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/restaurant_ratings_list" android:layout_gravity="center_horizontal" android:headerDividersEnabled="true"/>
+</LinearLayout>
