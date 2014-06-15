@@ -3,4 +3,11 @@
     <string name="app_name">FoodFinder</string>
     <string name="action_restaurant_prefs">Restaurant-Präferenzen</string>
     <string name="action_settings">Einstellungen</string>
+    <string name="settings_budget">Budget</string>
+    <string name="settings_preferred">Vorlieben</string>
+    <string name="settings_preferred_add_new">Neue Vorliebe hinzufügen</string>
+    <string name="settings_preferred_remove">Vorliebe löschen</string>
+    <string name="settings_allergies">Allergien</string>
+    <string name="settings_allergies_add_new">Neue Allergie hinzufügen</string>
+    <string name="settings_allergies_remove">Allergie löschen</string>
 </resources>

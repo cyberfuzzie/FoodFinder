@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/settings_stringlist_window_new" android:background="@android:color/transparent"
+        android:gravity="center_vertical" tools:context=".SettingsPreferredActivity">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:background="@android:color/background_dark"
+            >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/settings_preferred_add_new"
+                android:id="@+id/settings_stringlist_new_title" android:layout_gravity="center_horizontal"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/settings_stringlist_new_input_name" android:layout_gravity="center_horizontal" android:focusable="true"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OK"
+                android:id="@+id/settings_stringlist_new_button_ok" android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+</LinearLayout>
