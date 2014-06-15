@@ -4,9 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.List;
 
 /**
  * Created by cyberfuzzie on 6/15/14.
@@ -21,9 +22,10 @@ public class RestaurantActivity extends Activity {
         setContentView(R.layout.restaurant_view);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainScreen.RESTAURANT_MESSAGE);
+        int restaurantId = intent.getIntExtra(MainScreen.RESTAURANT_MESSAGE, 0);
 
-        restaurant = Restaurant.RestaurantGenerator.createNewRestaurant();
+        RestaurantDataSource dataSource = new RestaurantDataSource(this);
+        restaurant = dataSource.getRestaurant(restaurantId);
 
         setTitle(restaurant.getName());
 
@@ -46,13 +48,14 @@ public class RestaurantActivity extends Activity {
         TextView textDescription = (TextView) findViewById(R.id.restaurant_description);
         textDescription.setText(description);
 
-        ListView ratings = (ListView) findViewById(R.id.restaurant_ratings_list);
-        String[] array = new String[restaurant.getRatings().size()];
+        ListView ratingListView = (ListView) findViewById(R.id.restaurant_ratings_list);
+        List<Rating> ratings = dataSource.getRatings(restaurantId);
+        String[] array = new String[ratings.size()];
         for(int i=0;i<array.length;i++){
-            array[i] = restaurant.getRatings().get(i).toString();
+            array[i] = ratings.get(i).toString();
         }
-        RestaurantAdapter adapter = new RestaurantAdapter(this,array);
-        ratings.setAdapter(adapter);
+        RatingAdapter adapter = new RatingAdapter(this, restaurantId);
+        ratingListView.setAdapter(adapter);
     }
 
     public void createNewRating(View view) {

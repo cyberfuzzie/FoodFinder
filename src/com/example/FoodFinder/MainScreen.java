@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class MainScreen extends Activity {
     public static final String RESTAURANT_MESSAGE = "com.example.FoodFinder.RESTAURANT";
@@ -28,11 +27,7 @@ public class MainScreen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        String[] restaurantNames = {"Restaurant 1", "Restaurant 2", "Restaurant 3", "Restaurant 4", "Restaurant 5",
-                "Restaurant 6", "Restaurant 7", "Restaurant 8", "Restaurant 9", "Restaurant 10",
-                "Restaurant 11", "Restaurant 12", "Restaurant 13", "Restaurant 14", "Restaurant 15",
-                "Restaurant 16", "Restaurant 17", "Restaurant 18", "Restaurant 19", "Restaurant 20",};
-        adapter = new RestaurantAdapter(this, restaurantNames);
+        adapter = new RestaurantAdapter(this);
 
         ListView restaurantList = (ListView) findViewById(R.id.restaurantList);
         restaurantList.setAdapter(adapter);
@@ -41,7 +36,8 @@ public class MainScreen extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intentDisplayRestaurant = new Intent(MainScreen.this, RestaurantActivity.class);
-                intentDisplayRestaurant.putExtra(RESTAURANT_MESSAGE, adapter.getItem(position));
+                Restaurant r = adapter.getRestaurant(position);
+                intentDisplayRestaurant.putExtra(RESTAURANT_MESSAGE, r.getId());
                 startActivity(intentDisplayRestaurant);
             }
         });

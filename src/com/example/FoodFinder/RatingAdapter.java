@@ -12,22 +12,22 @@ import java.util.List;
 /**
  * Created by cyberfuzzie on 6/15/14.
  */
-public class RestaurantAdapter extends ArrayAdapter<String> {
+public class RatingAdapter extends ArrayAdapter<String> {
     private Context context;
-    private List<Restaurant> restaurants;
+    private List<Rating> ratings;
 
-    public RestaurantAdapter(Context context) {
+    public RatingAdapter(Context context, int restaurantId) {
         super(context, R.layout.restaurant_list_item);
         this.context = context;
 
         RestaurantDataSource dataSource = new RestaurantDataSource(context);
-        this.restaurants = dataSource.getRestaurants();
+        this.ratings = dataSource.getRatings(restaurantId);
 
-        String[] restaurantNames = new String[this.restaurants.size()];
-        for (int i=0; i<restaurants.size(); i++) {
-            restaurantNames[i] = restaurants.get(i).getName();
+        String[] ratingTexts = new String[this.ratings.size()];
+        for (int i=0; i<ratings.size(); i++) {
+            ratingTexts[i] = ratings.get(i).toString();
         }
-        addAll(restaurantNames);
+        addAll(ratingTexts);
     }
 
     @Override
@@ -36,13 +36,9 @@ public class RestaurantAdapter extends ArrayAdapter<String> {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.restaurant_list_item, parent, false);
         TextView textView = (TextView) rowView.findViewById(R.id.restaurantListItemName);
-        textView.setText(restaurants.get(position).getName());
+        textView.setText(ratings.get(position).toString());
 
         return rowView;
 
-    }
-
-    public Restaurant getRestaurant(int position) {
-        return restaurants.get(position);
     }
 }
