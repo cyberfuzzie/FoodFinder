@@ -5,4 +5,60 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent" tools:context=".PreferencesActivity">
 
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/settings_budget"
+            android:id="@+id/textView"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageButton" android:src="@drawable/lowbudget" android:onClick="lowerBudget"
+                android:scaleType="fitCenter"/>
+        <SeekBar
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/budgetSeeker" android:layout_weight="1" android:max="100" android:progress="50"/>
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageButton2" android:src="@drawable/highbudget" android:onClick="increaseBudget"
+                android:scaleType="fitCenter"/>
+    </LinearLayout>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/settings_appetite"
+            android:id="@+id/textView2"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageButton3" android:src="@drawable/minus" android:scaleType="fitCenter"
+                android:onClick="lowerAppetie"/>
+        <SeekBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/appetiteSeeker" android:progress="30"/>
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageButton4" android:scaleType="fitCenter" android:src="@drawable/plus"
+                android:onClick="increaseAppetie"/>
+    </LinearLayout>
+    <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Begleitung"
+            android:id="@+id/switch1"/>
 </LinearLayout>

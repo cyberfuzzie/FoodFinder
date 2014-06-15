@@ -50,6 +50,8 @@ public class MainScreen extends Activity {
 
     public void openRestaurantPreferences(MenuItem item) {
         Intent intentDisplayRestaurantPreferences = new Intent(this, PreferencesActivity.class);
+        intentDisplayRestaurantPreferences.putExtra(PreferencesActivity.PREFERENCES_APPETITE,30);
+        intentDisplayRestaurantPreferences.putExtra(PreferencesActivity.PREFERENCES_BUDGET,70);
         startActivity(intentDisplayRestaurantPreferences);
     }
 

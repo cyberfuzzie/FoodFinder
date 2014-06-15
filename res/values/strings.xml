@@ -3,4 +3,6 @@
     <string name="app_name">FoodFinder</string>
     <string name="action_restaurant_prefs">Restaurant-Präferenzen</string>
     <string name="action_settings">Einstellungen</string>
+    <string name="settings_budget">Budget</string>
+    <string name="settings_appetite">Appetit</string>
 </resources>
