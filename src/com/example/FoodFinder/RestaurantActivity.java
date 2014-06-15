@@ -3,6 +3,7 @@ package com.example.FoodFinder;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -56,6 +57,14 @@ public class RestaurantActivity extends Activity {
         }
         RatingAdapter adapter = new RatingAdapter(this, restaurantId);
         ratingListView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:finish();return true;
+            default: return super.onOptionsItemSelected(item);
+        }
     }
 
     public void createNewRating(View view) {

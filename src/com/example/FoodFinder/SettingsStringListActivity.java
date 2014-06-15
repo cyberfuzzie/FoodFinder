@@ -71,6 +71,14 @@ public class SettingsStringListActivity extends Activity {
         });
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:finish();return true;
+            default: return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void displayNewPreferencePopup() {
         LinearLayout viewGroup = (LinearLayout) findViewById(R.id.settings_stringlist_window_new);
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);

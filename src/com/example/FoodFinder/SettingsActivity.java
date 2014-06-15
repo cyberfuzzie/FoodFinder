@@ -3,6 +3,7 @@ package com.example.FoodFinder;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 /**
@@ -13,6 +14,14 @@ public class SettingsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:finish();return true;
+            default: return super.onOptionsItemSelected(item);
+        }
     }
 
     public void openSettingsPreferred(View view) {
