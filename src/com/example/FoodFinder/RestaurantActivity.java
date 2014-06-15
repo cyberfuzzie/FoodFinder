@@ -2,6 +2,7 @@ package com.example.FoodFinder;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.Random;
 
 /**
  * Created by cyberfuzzie on 6/15/14.
@@ -16,6 +19,14 @@ import java.util.List;
 public class RestaurantActivity extends Activity {
 
     private Restaurant restaurant;
+    private static String[] DESTINATIONS = {
+            "Studentenwerk Augsburg - Mensa an der Universität Augsburg",
+            "Gaststätte Unikum",
+            "Mr. Onions",
+            "Presto-Pizza",
+            "Il Porcino Ristorante"
+    };
+    private int destId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +68,8 @@ public class RestaurantActivity extends Activity {
         }
         RatingAdapter adapter = new RatingAdapter(this, restaurantId);
         ratingListView.setAdapter(adapter);
+
+        destId = new Random().nextInt(DESTINATIONS.length);
     }
 
     @Override
@@ -69,6 +82,14 @@ public class RestaurantActivity extends Activity {
 
     public void createNewRating(View view) {
         Intent intentDisplayNewRating = new Intent(this, NewRatingActivity.class);
+        intentDisplayNewRating.putExtra(NewRatingActivity.MESSAGE_RESTAURANTID, restaurant.getId());
         startActivity(intentDisplayNewRating);
+    }
+
+    public void navigateToRestaurant(View view) {
+        //String uri = String.format(Locale.ENGLISH, "geo:%f,%f", latitude, longitude);
+        String uri = "geo:0,0?q=" + DESTINATIONS[destId];
+        Intent intentNavigateTo = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        startActivity(intentNavigateTo);
     }
 }

@@ -13,4 +13,9 @@
     <string name="settings_appetite">Appetit</string>
     <string name="settings_save">Speichern</string>
     <string name="settings_plusone">Begleitung</string>
+    <string name="rating_new">Neue Bewertung</string>
+    <string name="rating_stars">Bewertung</string>
+    <string name="rating_send_new">Bewertung absenden</string>
+    <string name="rating_user_name">Benutzername</string>
+    <string name="rating_comment">Kommentar</string>
 </resources>

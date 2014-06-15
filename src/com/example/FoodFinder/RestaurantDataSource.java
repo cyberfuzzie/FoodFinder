@@ -63,4 +63,12 @@ public class RestaurantDataSource {
         }
         return ratings;
     }
+
+    public void saveRating(int restaurantId, String username, String text, int stars) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        String sql = "INSERT INTO ratings (restaurant_id, username, description, stars) " +
+                     "VALUES (?, ?, ?, ?);";
+        Object[] params = {restaurantId, username, text, stars};
+        db.execSQL(sql, params);
+    }
 }
