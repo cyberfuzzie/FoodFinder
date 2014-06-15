@@ -9,11 +9,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class MainScreen extends Activity {
-    public final static String RESTAURANT_MESSAGE = "com.example.FoodFinder.RESTAURANT";
+    public static final String RESTAURANT_MESSAGE = "com.example.FoodFinder.RESTAURANT";
+    public static final int PREFERENCES_REQUEST = 1;
 
     private RestaurantAdapter adapter;
+    private int appetiteValue = 70;
+    private int budgetValue = 30;
+    private boolean plusOne = false;
+
     /**
      * Called when the activity is first created.
      */
@@ -50,13 +56,27 @@ public class MainScreen extends Activity {
 
     public void openRestaurantPreferences(MenuItem item) {
         Intent intentDisplayRestaurantPreferences = new Intent(this, PreferencesActivity.class);
-        intentDisplayRestaurantPreferences.putExtra(PreferencesActivity.PREFERENCES_APPETITE,30);
-        intentDisplayRestaurantPreferences.putExtra(PreferencesActivity.PREFERENCES_BUDGET,70);
-        startActivity(intentDisplayRestaurantPreferences);
-    }
+        intentDisplayRestaurantPreferences.putExtra(PreferencesActivity.PREFERENCES_APPETITE,appetiteValue);
+        intentDisplayRestaurantPreferences.putExtra(PreferencesActivity.PREFERENCES_BUDGET,budgetValue);
+        intentDisplayRestaurantPreferences.putExtra(PreferencesActivity.PREFERENCES_PLUSONE,plusOne);
+        startActivityForResult(intentDisplayRestaurantPreferences,PREFERENCES_REQUEST);
+     }
 
     public void openSettings(MenuItem item) {
         Intent intentDisplaySettings = new Intent(this, SettingsActivity.class);
         startActivity(intentDisplaySettings);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch(requestCode){
+            case PREFERENCES_REQUEST: handlePreferencesRequest(resultCode,data);
+        }
+    }
+
+    private void handlePreferencesRequest(int resultCode, Intent data) {
+        appetiteValue = data.getIntExtra(PreferencesActivity.PREFERENCES_APPETITE,-1);
+        budgetValue = data.getIntExtra(PreferencesActivity.PREFERENCES_BUDGET,-1);
+        plusOne = data.getBooleanExtra(PreferencesActivity.PREFERENCES_PLUSONE,false);
     }
 }

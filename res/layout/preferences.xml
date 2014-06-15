@@ -59,6 +59,11 @@
     <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Begleitung"
-            android:id="@+id/switch1"/>
+            android:text="@string/settings_plusone"
+            android:id="@+id/switchPlusOne"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button" android:layout_gravity="center_horizontal" android:text="@string/settings_save"
+            android:onClick="saveButtonClicked"/>
 </LinearLayout>

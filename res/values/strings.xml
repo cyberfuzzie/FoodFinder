@@ -5,4 +5,6 @@
     <string name="action_settings">Einstellungen</string>
     <string name="settings_budget">Budget</string>
     <string name="settings_appetite">Appetit</string>
+    <string name="settings_save">Speichern</string>
+    <string name="settings_plusone">Begleitung</string>
 </resources>
