@@ -60,6 +60,7 @@ public class RestaurantActivity extends Activity {
 
     public void createNewRating(View view) {
         Intent intentDisplayNewRating = new Intent(this, NewRatingActivity.class);
+        intentDisplayNewRating.putExtra(NewRatingActivity.MESSAGE_RESTAURANTID, restaurant.getId());
         startActivity(intentDisplayNewRating);
     }
 }

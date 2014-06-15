@@ -23,6 +23,8 @@
                   android:parentActivityName=".MainScreen" />
         <activity android:name=".RestaurantActivity"
                   android:parentActivityName=".MainScreen" />
-        <activity android:name=".NewRatingActivity" />
+        <activity android:name=".NewRatingActivity"
+                  android:label="@string/rating_new"
+                  android:parentActivityName=".RestaurantActivity"/>
     </application>
 </manifest>

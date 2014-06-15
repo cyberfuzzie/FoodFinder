@@ -1,8 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent" tools:context=".NewRatingActivity">
-
-</LinearLayout>
+<TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+        android:stretchColumns="0" android:shrinkColumns="0">
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_marginLeft="10dp" android:layout_marginRight="10dp">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/new_rating_username" android:layout_span="2" android:layout_marginRight="20dp"
+                android:hint="@string/rating_user_name"/>
+    </TableRow>
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_marginLeft="10dp" android:layout_marginRight="10dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/rating_stars"
+                android:id="@+id/new_rating_label_stars" android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"/>
+        <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/new_rating_stars" android:layout_gravity="center_vertical"
+                android:layout_marginRight="20dp" android:stepSize="1"/>
+    </TableRow>
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_marginLeft="10dp" android:layout_marginRight="10dp">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/new_rating_text" android:layout_column="0" android:layout_span="2"
+                android:layout_marginRight="20dp" android:hint="@string/rating_comment"/>
+    </TableRow>
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rating_send_new"
+                android:id="@+id/new_rating_button_ok"
+                android:layout_column="0"
+                android:layout_span="2"
+                android:onClick="saveNewRating" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
+    </TableRow>
+</TableLayout>
