@@ -28,6 +28,7 @@ public class MainScreen extends Activity {
         setContentView(R.layout.main);
 
         adapter = new RestaurantAdapter(this);
+        adapter.refresh(budgetValue,appetiteValue,plusOne);
 
         ListView restaurantList = (ListView) findViewById(R.id.restaurantList);
         restaurantList.setAdapter(adapter);
@@ -74,5 +75,6 @@ public class MainScreen extends Activity {
         appetiteValue = data.getIntExtra(PreferencesActivity.PREFERENCES_APPETITE,-1);
         budgetValue = data.getIntExtra(PreferencesActivity.PREFERENCES_BUDGET,-1);
         plusOne = data.getBooleanExtra(PreferencesActivity.PREFERENCES_PLUSONE,false);
+        adapter.refresh(budgetValue,appetiteValue,plusOne);
     }
 }
