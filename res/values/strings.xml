@@ -10,4 +10,7 @@
     <string name="settings_allergies">Allergien</string>
     <string name="settings_allergies_add_new">Neue Allergie hinzufügen</string>
     <string name="settings_allergies_remove">Allergie löschen</string>
+    <string name="settings_appetite">Appetit</string>
+    <string name="settings_save">Speichern</string>
+    <string name="settings_plusone">Begleitung</string>
 </resources>
