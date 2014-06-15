@@ -15,9 +15,6 @@
         <activity android:name=".SettingsActivity"
                   android:label="@string/action_settings"
                   android:parentActivityName=".MainScreen" />
-        <activity android:name=".SettingsBudgetActivity"
-                  android:label="@string/settings_budget"
-                  android:parentActivityName=".SettingsActivity" />
         <activity android:name=".SettingsStringListActivity"
                   android:label="@string/settings_preferred"
                   android:parentActivityName=".SettingsActivity" />

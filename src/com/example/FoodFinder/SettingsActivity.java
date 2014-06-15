@@ -15,11 +15,6 @@ public class SettingsActivity extends Activity {
         setContentView(R.layout.settings);
     }
 
-    public void openSettingsBudget(View view) {
-        Intent intentDisplaySettingsBudget = new Intent(this, SettingsBudgetActivity.class);
-        startActivity(intentDisplaySettingsBudget);
-    }
-
     public void openSettingsPreferred(View view) {
         Intent intentDisplaySettingsPreferred = new Intent(this, SettingsStringListActivity.class);
         intentDisplaySettingsPreferred.putExtra(SettingsStringListActivity.TITLE_MESSAGE, getString(R.string.settings_preferred));
