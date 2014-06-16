@@ -18,4 +18,6 @@
     <string name="rating_send_new">Bewertung absenden</string>
     <string name="rating_user_name">Benutzername</string>
     <string name="rating_comment">Kommentar</string>
+    <string name="no_maps_app">Keine Karten-App installiert.</string>
+    <string name="ok">OK</string>
 </resources>

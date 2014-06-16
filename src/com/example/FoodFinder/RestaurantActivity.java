@@ -1,6 +1,9 @@
 package com.example.FoodFinder;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,7 +13,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Random;
 
 /**
@@ -90,6 +92,19 @@ public class RestaurantActivity extends Activity {
         //String uri = String.format(Locale.ENGLISH, "geo:%f,%f", latitude, longitude);
         String uri = "geo:0,0?q=" + DESTINATIONS[destId];
         Intent intentNavigateTo = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-        startActivity(intentNavigateTo);
+        try {
+            startActivity(intentNavigateTo);
+        } catch (ActivityNotFoundException e) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(getString(R.string.no_maps_app));
+            builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
     }
 }
