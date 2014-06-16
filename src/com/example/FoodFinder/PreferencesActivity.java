@@ -1,9 +1,7 @@
 package com.example.FoodFinder;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.Switch;
@@ -11,7 +9,7 @@ import android.widget.Switch;
 /**
  * Created by cyberfuzzie on 6/15/14.
  */
-public class PreferencesActivity extends Activity {
+public class PreferencesActivity extends FoodFinderBaseActivity {
 
     public static final String PREFERENCES_BUDGET = "com.example.FoodFinder.preferences_budget";
     public static final String PREFERENCES_APPETITE = "com.example.FoodFinder.preferences_appetite";
@@ -26,14 +24,6 @@ public class PreferencesActivity extends Activity {
         ((SeekBar)findViewById(R.id.budgetSeeker)).setProgress(getIntent().getIntExtra(PREFERENCES_BUDGET, 0));
         ((SeekBar)findViewById(R.id.appetiteSeeker)).setProgress(getIntent().getIntExtra(PREFERENCES_APPETITE, 0));
         ((Switch)findViewById(R.id.switchPlusOne)).setChecked(getIntent().getBooleanExtra(PREFERENCES_PLUSONE,false));
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:finish();return true;
-            default: return super.onOptionsItemSelected(item);
-        }
     }
 
     public void lowerBudget(View view) {

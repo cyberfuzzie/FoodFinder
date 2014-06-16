@@ -1,6 +1,5 @@
 package com.example.FoodFinder;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +9,7 @@ import android.widget.*;
 /**
  * Created by cyberfuzzie on 6/15/14.
  */
-public class SettingsStringListActivity extends Activity {
+public class SettingsStringListActivity extends FoodFinderBaseActivity {
     public final static String TITLE_MESSAGE = "com.example.FoodFinder.Settings.StringList.Title";
     public final static String SETTINGSITEM_MESSAGE = "com.example.FoodFinder.Settings.StringList.SettingsItem";
     public final static String ADDITEMLABEL_MESSAGE = "com.example.FoodFinder.Settings.StringList.AddItemLabel";
@@ -69,14 +68,6 @@ public class SettingsStringListActivity extends Activity {
                 return true;
             }
         });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:finish();return true;
-            default: return super.onOptionsItemSelected(item);
-        }
     }
 
     private void displayNewPreferencePopup() {

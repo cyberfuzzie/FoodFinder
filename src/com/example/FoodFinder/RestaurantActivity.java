@@ -1,22 +1,19 @@
 package com.example.FoodFinder;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Random;
 
 /**
  * Created by cyberfuzzie on 6/15/14.
  */
-public class RestaurantActivity extends Activity {
+public class RestaurantActivity extends FoodFinderBaseActivity {
 
     private Restaurant restaurant;
     private static String[] DESTINATIONS = {
@@ -70,14 +67,6 @@ public class RestaurantActivity extends Activity {
         ratingListView.setAdapter(adapter);
 
         destId = new Random().nextInt(DESTINATIONS.length);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:finish();return true;
-            default: return super.onOptionsItemSelected(item);
-        }
     }
 
     public void createNewRating(View view) {

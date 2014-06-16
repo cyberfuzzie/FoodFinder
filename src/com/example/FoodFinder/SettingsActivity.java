@@ -1,27 +1,17 @@
 package com.example.FoodFinder;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
 /**
  * Created by cyberfuzzie on 6/15/14.
  */
-public class SettingsActivity extends Activity {
+public class SettingsActivity extends FoodFinderBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:finish();return true;
-            default: return super.onOptionsItemSelected(item);
-        }
     }
 
     public void openSettingsPreferred(View view) {
