@@ -26,6 +26,24 @@ public class PreferencesActivity extends FoodFinderBaseActivity {
         ((Switch)findViewById(R.id.switchPlusOne)).setChecked(getIntent().getBooleanExtra(PREFERENCES_PLUSONE,false));
     }
 
+    public void openSettingsPreferred(View view) {
+        Intent intentDisplaySettingsPreferred = new Intent(this, SettingsStringListActivity.class);
+        intentDisplaySettingsPreferred.putExtra(SettingsStringListActivity.TITLE_MESSAGE, getString(R.string.settings_preferred));
+        intentDisplaySettingsPreferred.putExtra(SettingsStringListActivity.SETTINGSITEM_MESSAGE, FoodFinderSettings.PREF_NAME_PREFERRED);
+        intentDisplaySettingsPreferred.putExtra(SettingsStringListActivity.ADDITEMLABEL_MESSAGE, getString(R.string.settings_preferred_add_new));
+        intentDisplaySettingsPreferred.putExtra(SettingsStringListActivity.REMOVEITEMLABEL_MESSAGE, getString(R.string.settings_preferred_remove));
+        startActivity(intentDisplaySettingsPreferred);
+    }
+
+    public void openSettingsAllergies(View view) {
+        Intent intentDisplaySettingsAllergies = new Intent(this, SettingsStringListActivity.class);
+        intentDisplaySettingsAllergies.putExtra(SettingsStringListActivity.TITLE_MESSAGE, getString(R.string.settings_allergies));
+        intentDisplaySettingsAllergies.putExtra(SettingsStringListActivity.SETTINGSITEM_MESSAGE, FoodFinderSettings.PREF_NAME_ALLERGIES);
+        intentDisplaySettingsAllergies.putExtra(SettingsStringListActivity.ADDITEMLABEL_MESSAGE, getString(R.string.settings_allergies_add_new));
+        intentDisplaySettingsAllergies.putExtra(SettingsStringListActivity.REMOVEITEMLABEL_MESSAGE, getString(R.string.settings_allergies_remove));
+        startActivity(intentDisplaySettingsAllergies);
+    }
+
     public void lowerBudget(View view) {
         SeekBar seeker = (SeekBar) findViewById(R.id.budgetSeeker);
         int tmp = seeker.getProgress();
@@ -52,10 +70,6 @@ public class PreferencesActivity extends FoodFinderBaseActivity {
         int tmp = seeker.getProgress();
         tmp += 10;
         seeker.setProgress(tmp);
-    }
-
-    public void saveButtonClicked(View view){
-        finish();
     }
 
     @Override

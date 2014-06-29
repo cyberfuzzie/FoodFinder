@@ -59,11 +59,6 @@ public class MainScreen extends Activity {
         startActivityForResult(intentDisplayRestaurantPreferences,PREFERENCES_REQUEST);
      }
 
-    public void openSettings(MenuItem item) {
-        Intent intentDisplaySettings = new Intent(this, SettingsActivity.class);
-        startActivity(intentDisplaySettings);
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch(requestCode){

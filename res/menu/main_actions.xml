@@ -2,12 +2,8 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/action_restaurant_prefs"
-          android:icon="@drawable/ic_launcher"
+          android:icon="@android:drawable/ic_menu_preferences"
           android:title="@string/action_restaurant_prefs"
-          android:showAsAction="never"
+          android:showAsAction="ifRoom"
           android:onClick="openRestaurantPreferences" />
-    <item android:id="@+id/action_settings"
-          android:title="@string/action_settings"
-          android:showAsAction="never"
-          android:onClick="openSettings" />
 </menu>

@@ -12,12 +12,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity"
-                  android:label="@string/action_settings"
-                  android:parentActivityName=".MainScreen" />
         <activity android:name=".SettingsStringListActivity"
                   android:label="@string/settings_preferred"
-                  android:parentActivityName=".SettingsActivity" />
+                  android:parentActivityName=".PreferencesActivity" />
         <activity android:name=".PreferencesActivity"
                   android:label="@string/action_restaurant_prefs"
                   android:parentActivityName=".MainScreen" />
